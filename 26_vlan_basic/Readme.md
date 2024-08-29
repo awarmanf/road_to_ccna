@@ -813,4 +813,3 @@ Then do test ping to the core switch and access switch.
 
 The final configuration saved as file packet tracer [Basic VLANs Initial](Basic%s0VLANs%s0Final.pkt)
 
-
