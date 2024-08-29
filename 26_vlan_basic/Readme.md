@@ -38,7 +38,7 @@ The others
 Use file packet tracer [Basic VLANs Initial](Basic%s0VLANs%s0Initial.pkt)
 
 
-## Basic Configuration
+## Configuration
 
 ### Core Switch (Multilayer Switch)
 
@@ -685,9 +685,9 @@ Show running-config
 
 Do something similar on switch 2 and switch 3.
 
-### Switch 2 
+### Switch 2 (S2)
 
-### Configure Trunk Port & VTP mode Client
+#### Configure Trunk Port & VTP mode Client
 
 Configure vtp mode client and vtp domain ccna.
 
@@ -716,7 +716,7 @@ Configure interface `gig0/1` as trunk port.
     end
     write
 
-### Configure IP Address on VLAN 1 and default gateway
+#### Configure IP Address on VLAN 1 and default gateway
 
     conf t
     int vlan 1
@@ -733,7 +733,7 @@ Configure interface `gig0/1` as trunk port.
 Ping to 10.1.1.254.
 Ping to 10.1.100.254.
 
-### Switch 3
+### Switch 3 (S3)
 
 #### Configure Trunk Port & VTP mode Client
 
