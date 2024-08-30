@@ -14,6 +14,6 @@ Hopefully this concise notes will help you to study ccna.
 
 ## Sections
 
-- Section 23 VLANs
-- Section 26 VLAN Basic Network Campus
+- [Section 23 VLANs](https://github.com/awarmanf/road_to_ccna/tree/master/23_vlan_intro)
+- [Section 26 VLAN Basic Network Campus](https://github.com/awarmanf/road_to_ccna/tree/master/26_vlan_basic)
 
