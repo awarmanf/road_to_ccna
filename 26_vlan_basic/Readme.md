@@ -7,6 +7,28 @@ Configure the network as follows
 
 ![topology](00.png)
 
+At the Multilayer Switch or Core Switch we execute command `sh cdp neighbors` in privileged mode.
+
+    Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge
+                      S - Switch, H - Host, I - IGMP, r - Repeater, P - Phone
+    Device ID    Local Intrfce   Holdtme    Capability   Platform    Port ID
+    S2           Gig 1/0/2        166            S       2960        Gig 0/1
+    S1           Gig 1/0/1        166            S       2960        Gig 0/1
+    S3           Gig 1/0/3        166            S       2960        Gig 0/1
+
+To extract information about the connecting device use command `sh cdp entry S1` (show lines are removed).
+
+    Device ID: S1
+    Entry address(es): 
+    Platform: cisco 2960, Capabilities: Switch
+    Interface: GigabitEthernet1/0/1, Port ID (outgoing port): GigabitEthernet0/1
+    Holdtime: 129
+
+    Version :
+    Cisco IOS Software, C2960 Software (C2960-LANBASE-M), Version 12.2(25)FX, RELEASE SOFTWARE (fc1)
+    Copyright (c) 1986-2005 by Cisco Systems, Inc.
+    Compiled Wed 12-Oct-05 22:05 by pt_team
+
 Multilayer Switch 3650
 * IP addresses and interVLAN routing
   * VLAN 1 = 10.1.1.254/24
