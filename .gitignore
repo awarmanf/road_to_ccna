@@ -1,0 +1,13 @@
+#
+README.txt
+#
+# Folder latihan 
+Section*/
+#
+#
+temp/
+tmp/
+old/
+*.tmp
+*.bak
+*.orig
