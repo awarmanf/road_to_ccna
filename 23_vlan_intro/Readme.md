@@ -158,5 +158,3 @@ the database. So the port is automatically error disabled.
 
 Essentially what happens is that the entire network is brought down by the introduction of the single switch.
 
-
-

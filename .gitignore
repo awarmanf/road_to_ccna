@@ -3,6 +3,8 @@ README.txt
 #
 # Folder latihan
 Section*/
+# Folder latihan which is a symbolic link to synced folder
+Section*
 #
 #
 temp/
