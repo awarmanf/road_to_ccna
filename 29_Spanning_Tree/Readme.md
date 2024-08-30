@@ -29,7 +29,7 @@ superseded by newer versions such as rapid spanning tree and multiple spanning t
 
 Source [STP](https://www.ciscopress.com/articles/article.asp?p=2832407&seqNum=5)
 
-### STP
+### STP [↟](#contents)
 	
 - IEEE 802.1D is the original standard.
 - STP creates one spanning-tree instance for the entire bridged network, regardless of the number of VLANs.
@@ -37,7 +37,7 @@ Source [STP](https://www.ciscopress.com/articles/article.asp?p=2832407&seqNum=5)
 - This version is slow to converge.
 - The CPU and memory requirements are lower than for all other STP protocols.
 
-### PVST+
+### PVST+ [↟](#contents)
 
 - This is a Cisco enhancement of STP that provides a separate STP instance for each VLAN.
 - Each instance supports PortFast, BPDU guard, BPDU filter, root guard, and loop guard.
@@ -45,13 +45,13 @@ Source [STP](https://www.ciscopress.com/articles/article.asp?p=2832407&seqNum=5)
 - However, CPU and memory requirements are high due to maintaining separate STP instances per VLAN.
 - Convergence is per-VLAN and is slow, like 802.1D.
 
-### RSTP
+### RSTP [↟](#contents)
 
 - 802.1w is an evolution of 802.1D that addresses many convergence issues.
 - Like STP, it provides only a single instance of STP and therefore does not address suboptimal traffic flow issues.
 - The CPU and memory requirements are less than for Rapid PVST+ but more than for 802.1D.
 
-### Rapid PVST+
+### Rapid PVST+ [↟](#contents)
 
 - This is a Cisco enhancement of RSTP.
 - Rapid PVST+ uses PVST+ and provides a separate instance of 802.1w for each VLAN.
@@ -59,7 +59,7 @@ Source [STP](https://www.ciscopress.com/articles/article.asp?p=2832407&seqNum=5)
 - This version addresses the convergence issues and the suboptimal traffic flow issues.
 - The CPU and memory requirements are the highest of all STP implementations.
 
-### MSTP
+### MSTP [↟](#contents)
 
 - IEEE 802.1s is based on the Cisco Multiple Instance Spanning-Tree Protocol (MISTP) which is often simply referred to as Multiple Spanning Tree (MST).
 - The Cisco implementation is often referred to as Multiple Spanning Tree (MST).
@@ -68,7 +68,7 @@ Source [STP](https://www.ciscopress.com/articles/article.asp?p=2832407&seqNum=5)
 - Each instance supports PortFast, BPDU guard, BPDU filter, root guard, and loop guard.
 - The CPU and memory requirements are less than for Rapid PVST+ but more than for RSTP.
 
-## Comparing Spanning Tree Protocols
+## Comparing Spanning Tree Protocols [↟](#contents)
 
 Protocol | Standard | Resources Needed | Convergence | STP Tree Calculation
 ---------|----------|------------------|-------------|---------------------
@@ -78,7 +78,7 @@ RSTP | IEEE 802.1w | Medium | Fast | All VLANs
 Rapid PVST+ | Cisco | High | Fast | Per VLAN
 MSTP (MST) | IEEE 802.1s, Cisco | Medium or high | Fast | Per instance
 
-## BPDU
+## BPDU [↟](#contents)
 
 Bridge protocol data units or BPDUs are sent out of all ports on switches by default every two seconds when running spanning tree.
 So switches will learn about each other when they receive BPDUs from other switches on their ports.
