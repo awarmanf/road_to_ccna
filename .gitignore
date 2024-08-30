@@ -10,9 +10,11 @@ Section*
 temp/
 tmp/
 old/
-old.md
+*.??.md
 *.tmp
 *.bak
+*old.md
+*.old.md
 *.orig
 *.orig.md
 *.pcapng
