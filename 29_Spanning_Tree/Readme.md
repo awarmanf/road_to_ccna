@@ -18,6 +18,7 @@
     + [Root Port Decision](#root-port-decision)
   * [PVST plus Extended Bridge ID](#pvst-plus-extended-bridge-id)
   * [Fast Ports](#fast-ports)
+  * [Rapid PVST+ Demo](#rapid-pvst-demo)
 
 ## Introduction
 
@@ -321,6 +322,69 @@ Fast Ports
 - By pass listening and learning states. Goes directyly from blocking to forwarding
 - Quicker convergence rather than waiting for spanning tree to go through states: blocking, listening, learning, forwarding
 - Spanning Tree still running on that ports but transition immediately to forwarding
+
+[↟](#contents)
+
+## Rapid PVST+ Demo
+
+Change to rapid-pvst to all switches, S1 and S2
+
+    conf t
+    spanning-tree mode rapid-pvst 
+    end
+
+Show spanning tree 
+
+Switch S1
+
+    VLAN0001
+      Spanning tree enabled protocol rstp
+      Root ID    Priority    32769
+                 Address     00D0.BC45.4822
+                 This bridge is the root
+                 Hello Time  2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+      Bridge ID  Priority    32769  (priority 32768 sys-id-ext 1)
+                 Address     00D0.BC45.4822
+                 Hello Time  2 sec  Max Age 20 sec  Forward Delay 15 sec
+                 Aging Time  20
+
+    Interface        Role Sts Cost      Prio.Nbr Type
+    ---------------- ---- --- --------- -------- --------------------------------
+    Gi0/1            Desg FWD 4         128.1    P2p
+    Gi2/1            Desg FWD 19        128.3    P2p
+    Gi1/1            Desg FWD 4         128.2    P2p
+
+Switch S2
+
+    VLAN0001
+      Spanning tree enabled protocol rstp
+      Root ID    Priority    32769
+                 Address     00D0.BC45.4822
+                 Cost        4
+                 Port        1(GigabitEthernet0/1)
+                 Hello Time  2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+      Bridge ID  Priority    32769  (priority 32768 sys-id-ext 1)
+                 Address     00E0.B054.A478
+                 Hello Time  2 sec  Max Age 20 sec  Forward Delay 15 sec
+                 Aging Time  20
+
+    Interface        Role Sts Cost      Prio.Nbr Type
+    ---------------- ---- --- --------- -------- --------------------------------
+    Gi0/1            Root FWD 4         128.1    P2p
+    Gi1/1            Altn BLK 4         128.2    P2p
+    Gi2/1            Desg FWD 19        128.3    P2p
+
+Show running-config
+
+    # sh running-config | in span
+    spanning-tree mode rapid-pvst
+    spanning-tree extend system-id
+
+Write to memori. Reboot all switch. The spanning-tree is faster than before.
+
+RPVST is backward compatible with 802.1d. RPVST is compatible with PVST.
 
 [↟](#contents)
 
