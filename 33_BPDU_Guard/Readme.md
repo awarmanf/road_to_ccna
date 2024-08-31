@@ -61,7 +61,7 @@ The topology above has spanning tree mode rapid-pvst (rstp).
     Gi1/1            Desg FWD 4         128.2    P2p
     Gi3/1            Root FWD 4         128.4    P2p
 
-At first no portfast and no bpduguard enabled
+At first both portfast and bpduguard are disabled. 
 
     S1# sh spanning-tree summary 
     Switch is in rapid-pvst mode
