@@ -132,9 +132,12 @@ File packet tracer [Topology](topology-2.pkt)
 
 You want to protect the interface Gi3/1 with BPDU Guard from the unknown switches. There are two ways to configure it.
 
+* Configure BPDU Guard per interface
+* Configure BPDU Guard globally on portfast
+
 [↟](#contents)
 
-### Configure BPDU Guard per interface
+### Configure BPDU Guard per Interface
 
 At switch S1 configure BPDU Guard.
 
@@ -185,7 +188,7 @@ If you want to make the port Gi3/1 up again then disable bpduguard.
 
 [↟](#contents)
 
-### Configure BPDU Guard globally on PortFast
+### Configure BPDU Guard Globally on PortFast
 
 We make the interface Gi2/1 and Gi3/1 at S1 as portfast. 
 
