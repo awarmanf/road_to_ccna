@@ -18,3 +18,4 @@ Hopefully this concise notes will help you to study ccna.
 - [Section 26 VLAN Basic Network Campus](https://github.com/awarmanf/road_to_ccna/tree/master/26_VLAN_Basic)
 - [Section 27 DTP](https://github.com/awarmanf/road_to_ccna/tree/master/27_DTP)
 - [Section 29 Spanning Tree](https://github.com/awarmanf/road_to_ccna/tree/master/29_Spanning_Tree)
+- [Section 31 SPT Port Fast](https://github.com/awarmanf/road_to_ccna/tree/development/31_SPT_Port_Fast)
