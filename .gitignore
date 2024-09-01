@@ -11,8 +11,10 @@ temp/
 tmp/
 old/
 *.??.md
-*.tmp
 *.bak
+# file latihan topology packet tracer
+lat-*.pkt
+*.tmp
 *old.md
 *.old.md
 *.orig
