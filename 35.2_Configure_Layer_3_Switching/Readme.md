@@ -528,6 +528,10 @@ Now try ping from PC3 to PC1 and PC2 and vice versa.
 
 ## Final
 
+Topologi baru:
+
+![topology](01.png)
+
 File packet tracer [Topology Final](topology-2.pkt).
 
 [↟](#contents)
