@@ -737,7 +737,7 @@ Configure access port on interface `gi 1/0/1` with VLAN 30.
 
 File packet tracer [Topology](topology-3.pkt).
 
-Next: _Section 38 Campus Network Part 2_
+Next: _Section 39 Campus Network Part 2_
 
 [↟](#contents)
 
