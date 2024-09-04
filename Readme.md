@@ -22,6 +22,7 @@ Hopefully this concise notes will help you to study ccna.
 - [Section 31 SPT Port Fast](https://github.com/awarmanf/road_to_ccna/tree/development/31_SPT_Port_Fast)
 - [Section 32 Spanning Tree CheatSheet](https://github.com/awarmanf/road_to_ccna/tree/master/32_SPT_CheatSheet)
 - [Section 33 BPDU Guard](https://github.com/awarmanf/road_to_ccna/tree/master/33_BPDU_Guard)
+- [Section 34 Cisco Discovery Protocol](https://github.com/awarmanf/road_to_ccna/tree/master/34_Cisco_Discovery_Protocol)
 - [Section 35.1 Configure Layer 3 Switching](https://github.com/awarmanf/road_to_ccna/tree/master/35.1_Configure_Layer_3_Switching)
 - [Section 35.2 Configure Layer 3 Switching](https://github.com/awarmanf/road_to_ccna/tree/master/35.2_Configure_Layer_3_Switching)
 - [Section 37 Campus Network Part 1](https://github.com/awarmanf/road_to_ccna/tree/master/37_Campus_Network_Part_1)
