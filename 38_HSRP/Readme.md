@@ -17,7 +17,13 @@
   
 ## Background
 
-This is a topology before implementation HSRP.
+The network in the picture below is relatively simple. There are a bunch of PCs connected 
+to a switch. In the middle, you’ll find two multilayer switches (Core1 and Core2) that both 
+have an IP address that could be used as the default gateway for the computers. Behind 
+Core1 and Core2, there’s a internet router that is connected to the Internet.
+
+Which gateway should we configure on the computer? Core1 or Core2? You can only configure 
+one gateway after all.
 
 ![Pre HSRP](pre-hsrp.png)
 
@@ -46,6 +52,10 @@ Here’s what we have:
     - IP Address 192.168.100.101/24
     - DNS Server 8.8.8.8
     - Gateway 192.168.100.2
+
+If one of the multilayer switch, eg Core1 crashes, the computer PC0 won’t be able to get 
+out of its own subnet because it only knows about one default gateway. 
+To solve this problem, we will create a virtual gateway, Hot Standby Routing Protocol or HSRP.
 
 [↟](#contents)
 
