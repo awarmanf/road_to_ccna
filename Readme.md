@@ -27,4 +27,5 @@ Hopefully this concise notes will help you to study ccna.
 - [Section 35.2 Configure Layer 3 Switching](https://github.com/awarmanf/road_to_ccna/tree/master/35.2_Configure_Layer_3_Switching)
 - [Section 37 Campus Network Part 1](https://github.com/awarmanf/road_to_ccna/tree/master/37_Campus_Network_Part_1)
 - [Section 38 HSRP](https://github.com/awarmanf/road_to_ccna/tree/master/38_HSRP)
+- [Section 39 Campus Network Part 2](https://github.com/awarmanf/road_to_ccna/tree/master/39_Campus_Network_Part_2)
 
