@@ -1126,7 +1126,7 @@ No need to enable ip routing.
     write
 
 >The term `ip default-gateway` it is used in configuring layer 2 switches to provide a next 
-hop for management traffic from the switch to remote destinations.
+hop for management traffic from the switch to remote destinations. Use `ip default-gateway` command when ip routing is disabled.
 
 Test ping to ip internet 8.8.8.254 belong to IntRouter.
 
