@@ -6,6 +6,7 @@ Section*/
 # Folder latihan which is a symbolic link to synced folder
 Section*
 #
+Orig/
 #
 temp/
 tmp/
