@@ -30,4 +30,5 @@ Hopefully this concise notes will help you to study ccna.
 - [Section 39 Campus Network Part 2](https://github.com/awarmanf/road_to_ccna/tree/master/39_Campus_Network_Part_2)
 - [Section 46 Router on a Stick](https://github.com/awarmanf/road_to_ccna/tree/master/46_Router_on_a_Stick/)
 - [Section 50 DHCP Server](https://github.com/awarmanf/road_to_ccna/tree/master/50_DHCP_Server)
+- [Section 50 DHCP Server 2](https://github.com/awarmanf/road_to_ccna/tree/master/50_DHCP_Server_2)
 
