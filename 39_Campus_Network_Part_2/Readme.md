@@ -35,6 +35,7 @@
       - [Configure EIGRP on Core2 and IntRouter](#configure-eigrp-on-core2-and-introuter)
       - [Configure Gateway of Last Resort on Core1](#configure-gateway-of-last-resort-on-core1)
       - [Configure IP Default Gateway on Access Switches](#configure-ip-default-gateway-on-access-switches)
+  * [Final](#final)
 
 ## Background
 
@@ -42,7 +43,7 @@ This is a continuation of the [Campus Network Part 1](https://github.com/awarman
 
 ![topology](topology-1.png)
 
-File packet tracer [Topology](topology-1.pkt)
+File packet tracer [Topology](topology-initial.pkt)
 
 Imagine that you had many servers here as well as many PCs on switch 2 and switch 3 trying to 
 get to a group of servers on the left end side. Let's say they were moving large files.
@@ -854,13 +855,32 @@ So before confuring networking on PC we setup HSRP on Core1 and Core2 for each V
 
 #### VLAN 1
 
-Configuration at Core1 & Core2
+Configuration at Core1
+
+    conf t
+    interface vlan 1
+    standby 1 ip 10.1.1.254
+    standby 1 priority 200
+    standby 1 preempt    
+    end
+    write
+
+> We want Core1 as active gateway for VLAN 1
+
+Configuration at Core2
 
     conf t
     interface vlan 1
     standby 1 ip 10.1.1.254
     end
     write
+
+Enter command `sh standby brief` on Core1
+
+                         P indicates configured to preempt.
+                         |
+    Interface   Grp  Pri P State    Active          Standby         Virtual IP
+    Vl1         1    200 P Active   local           10.1.1.252      10.1.1.254
 
 On Access1 do ping to that ip
 
@@ -875,7 +895,19 @@ Now, we can continue to create hsrp for other vlans.
 
 #### VLAN 10
 
-Configuration on Core1 & Core2
+Configuration on Core1
+
+    conf t
+    interface vlan 10
+    standby 1 ip 10.1.10.254
+    standby 1 priority 200
+    standby 1 preempt    
+    end
+    write
+
+> We want Core1 as active gateway for VLAN 10
+
+Configuration on Core2
 
     conf t
     interface vlan 10
@@ -890,15 +922,35 @@ Configuration on PC1
 
 Tes ping to gateway.
 
+Enter command `sh standby brief` on Core1
+
+                         P indicates configured to preempt.
+                         |
+    Interface   Grp  Pri P State    Active          Standby         Virtual IP
+    Vl1         1    200 P Active   local           10.1.1.252      10.1.1.254     
+    Vl10        1    200 P Active   local           10.1.10.251     10.1.10.254 
+
 #### VLAN 20
 
-Configuration at Core1 & Core2
+Configuration at Core1
 
     conf t
     interface vlan 20
     standby 1 ip 10.1.20.254
     end
     write
+
+Configuration at Core2
+
+    conf t
+    interface vlan 20
+    standby 1 ip 10.1.20.254
+    standby 1 priority 200
+    standby 1 preempt    
+    end
+    write
+
+> We want Core1 as active gateway for VLAN 20
 
 Configuration on PC2
 
@@ -907,9 +959,30 @@ Configuration on PC2
 
 Tes ping to gateway.
 
+Enter command `sh standby brief` on Core2
+
+                         P indicates configured to preempt.
+                         |
+    Interface   Grp  Pri P State    Active          Standby         Virtual IP
+    Vl1         1    100   Standby  10.1.1.251      local           10.1.1.254     
+    Vl10        1    100   Standby  10.1.10.251     local           10.1.10.254    
+    Vl20        1    200 P Active   local           unknown         10.1.20.254    
+
 #### VLAN 30
 
-Configuration at Core1 & Core2
+Configuration at Core1
+
+    conf t
+    interface vlan 30
+    standby 1 ip 10.1.30.254
+    standby 1 priority 200
+    standby 1 preempt
+    end
+    write
+
+> We want Core1 as active gateway for VLAN 10
+
+Configuration at Core2
 
     conf t
     interface vlan 30
@@ -924,9 +997,19 @@ Configuration on PC3
 
 Tes ping to gateway.
 
+Enter command `sh standby brief` on Core1
+
+                         P indicates configured to preempt.
+                         |
+    Interface   Grp  Pri P State    Active          Standby         Virtual IP
+    Vl1         1    200 P Active   local           10.1.1.252      10.1.1.254     
+    Vl10        1    200 P Active   local           10.1.10.252     10.1.10.254    
+    Vl20        1    100   Standby  10.1.20.252     local           10.1.20.254    
+    Vl30        1    200 P Active   local           unknown         10.1.30.254    
+
 #### VLAN 100
 
-Configuration at Core1 & Core2
+Configuration at Core1
 
     conf t
     interface vlan 100
@@ -934,12 +1017,35 @@ Configuration at Core1 & Core2
     end
     write
 
+Configuration at Core2
+
+    conf t
+    interface vlan 100
+    standby 1 ip 10.1.100.254
+    standby 1 priority 200
+    standby 1 preempt
+    end
+    write
+
+> We want Core2 as active gateway for VLAN 100
+
 Configuration on Server1
 
 - IP Address 10.1.100.1/24
 - Gateway 10.1.100.254
 
 Tes ping to gateway.
+
+Enter command `sh standby brief` on Core2
+
+                         P indicates configured to preempt.
+                         |
+    Interface   Grp  Pri P State    Active          Standby         Virtual IP
+    Vl1         1    100   Standby  10.1.1.251      local           10.1.1.254     
+    Vl10        1    100   Standby  10.1.10.251     local           10.1.10.254    
+    Vl20        1    200 P Active   local           10.1.20.251     10.1.20.254    
+    Vl30        1    100   Standby  10.1.30.251     local           10.1.30.254    
+    Vl100       1    200 P Active   local           10.1.100.251    10.1.100.254   
 
 [↟](#contents)
 
@@ -1005,7 +1111,18 @@ Test ping to 8.8.8.8.
 
 #### Configure EIGRP on Core2 and IntRouter
 
-Configure eigrp on Core2 and IntRouter
+Configure eigrp on Core2
+
+    conf t
+    router eigrp 100
+    network 10.0.0.0
+    no auto-summary
+    end
+    write
+
+>EIGRP has auto-summarization enabled by default. Auto-summary summarizes networks to their major classful boundary. With no auto-summary you are disabling this function. If you don't configure "no auto summary", the router would summarize the subnetted addresses into a single network.
+
+Configure eigrp on IntRouter
 
     conf t
     router eigrp 100
@@ -1068,6 +1185,48 @@ On IntRouter enter command `sh ip route`
     D       10.1.100.0/24 [90/25625856] via 10.10.10.2, 00:01:15, GigabitEthernet0/0/0
     C       10.10.10.0/30 is directly connected, GigabitEthernet0/0/0
     L       10.10.10.1/32 is directly connected, GigabitEthernet0/0/0
+    
+Enter command `sh ip eigrp interfaces` on Core2
+
+    IP-EIGRP interfaces for process 100
+
+                            Xmit Queue   Mean   Pacing Time   Multicast    Pending
+    Interface        Peers  Un/Reliable  SRTT   Un/Reliable   Flow Timer   Routes
+    Vlan               0        0/0      1236       0/10           0           0
+    Vlan               0        0/0      1236       0/10           0           0
+    Vlan               0        0/0      1236       0/10           0           0
+    Vlan               0        0/0      1236       0/10           0           0
+    Vlan               0        0/0      1236       0/10           0           0
+    Gig1/0/22          1        0/0      1236       0/10           0           0
+
+Enter command `sh ip eigrp neighbors` on Core2
+
+    IP-EIGRP neighbors for process 100
+    H   Address         Interface      Hold Uptime    SRTT   RTO   Q   Seq
+                                       (sec)          (ms)        Cnt  Num
+    0   10.10.10.1      Gig1/0/22      10   00:18:28  40     1000  0   11
+
+Enter command `sh ip eigrp topology` on Core2
+
+    IP-EIGRP Topology Table for AS 100/ID(10.10.10.2)
+
+    Codes: P - Passive, A - Active, U - Update, Q - Query, R - Reply,
+           r - Reply status
+
+    P 8.8.8.0/24, 1 successors, FD is 3072
+             via 10.10.10.1 (3072/2816), GigabitEthernet1/0/22
+    P 10.1.1.0/24, 1 successors, FD is 25625600
+             via Connected, Vlan1
+    P 10.1.10.0/24, 1 successors, FD is 25625600
+             via Connected, Vlan10
+    P 10.1.20.0/24, 1 successors, FD is 25625600
+             via Connected, Vlan20
+    P 10.1.30.0/24, 1 successors, FD is 25625600
+             via Connected, Vlan30
+    P 10.1.100.0/24, 1 successors, FD is 25625600
+             via Connected, Vlan100
+    P 10.10.10.0/30, 1 successors, FD is 2816
+             via Connected, GigabitEthernet1/0/22
 
 On PC1, P2, PC3 and Server1 we can ping to 8.8.8.254.
 
@@ -1139,7 +1298,22 @@ Test ping to ip internet 8.8.8.254 belong to IntRouter.
 
 Do similar thing on Access2 and Access3.
 
-File packet tracer [Topology Final](topology-hsrp.pkt)
-
 [↟](#contents)
+
+## Final
+
+File configuration multilayer switch [Core1 Final](Core1_final.txt)
+
+File configuration multilayer switch [Core2 Final](Core2_final.txt)
+
+File configuration access switch [Access1 Final](Access1_final.txt)
+
+File configuration access switch [Access2 Final](Access2_final.txt)
+
+File configuration access switch [Access3 Final](Access3_final.txt)
+
+File configuration router [IntRouter](IntRouter_final.txt)
+
+File packet tracer [Topology Final](topology-final.pkt)
+
 
