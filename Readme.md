@@ -31,4 +31,12 @@ Hopefully this concise notes will help you to study ccna.
 - [Section 46 Router on a Stick](https://github.com/awarmanf/road_to_ccna/tree/master/46_Router_on_a_Stick/)
 - [Section 50 DHCP Server](https://github.com/awarmanf/road_to_ccna/tree/master/50_DHCP_Server)
 - [Section 50 DHCP Server 2](https://github.com/awarmanf/road_to_ccna/tree/master/50_DHCP_Server_2)
+- [Section 57_NTP](https://github.com/awarmanf/road_to_ccna/tree/master/57_NTP)
+- [Section 58_NTP_and_Syslog](https://github.com/awarmanf/road_to_ccna/tree/master/58_NTP_and_Syslog)
+- [Section 59_Port_SPAN](https://github.com/awarmanf/road_to_ccna/tree/master/59_Port_SPAN)
+- [Section 64_SNMP_Packet_Tracer](https://github.com/awarmanf/road_to_ccna/tree/master/64_SNMP_Packet_Tracer)
+- [Section 68_Confreg_Troubleshooting](https://github.com/awarmanf/road_to_ccna/tree/master/68_Confreg_Troubleshooting)
+- [Section 69_Password_Recovery](https://github.com/awarmanf/road_to_ccna/tree/master/69_Password_Recovery)
+- [Section 70_Restore_CiscoIOS_Image](https://github.com/awarmanf/road_to_ccna/tree/master/70_Restore_CiscoIOS_Image)
+- [Section 72_Infrastructure_Security](https://github.com/awarmanf/road_to_ccna/tree/master/72_Infrastructure_Security)
 
