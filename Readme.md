@@ -39,4 +39,7 @@ Hopefully this concise notes will help you to study ccna.
 - [Section 69_Password_Recovery](https://github.com/awarmanf/road_to_ccna/tree/master/69_Password_Recovery)
 - [Section 70_Restore_CiscoIOS_Image](https://github.com/awarmanf/road_to_ccna/tree/master/70_Restore_CiscoIOS_Image)
 - [Section 72_Infrastructure_Security](https://github.com/awarmanf/road_to_ccna/tree/master/72_Infrastructure_Security)
-
+- [Section 75 DHCP Snooping and DAI](https://github.com/awarmanf/road_to_ccna/tree/master/75_DHCP_Spoofing_and_DAI)
+- [Section 76 DHCP Snooping](https://github.com/awarmanf/road_to_ccna/tree/master/76_DHCP_Snooping)
+- [Section 80 Port Security](https://github.com/awarmanf/road_to_ccna/tree/master/80_Port_Security)
+- [Section 82 AAA TACACS and Radius](https://github.com/awarmanf/road_to_ccna/tree/master/82_AAA_TACACS_and_Radius)
