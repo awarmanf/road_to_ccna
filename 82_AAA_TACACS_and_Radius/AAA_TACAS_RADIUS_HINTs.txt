@@ -1,0 +1,51 @@
+Here are commands to help you set up TACACS and RADIUS:
+
+TACACS:
+=======
+aaa new-model
+username backup password cisco
+aaa authentication login default group tacacs+ local 
+aaa authentication enable default group tacacs+ local 
+tacacs-server host 10.1.1.250 key cisco
+
+RADIUS:
+=======
+aaa new-model
+username backup password cisco
+aaa authentication login default group radius local 
+aaa authentication enable default group radius local 
+radius-server host 10.1.1.250 key cisco
+
+
+NOTE:  Recent versions of Packet Tracer updated the simulated IOS;IOS-XE devices, so the above command list isn't exactly accurate:
+
+
+Tacacs+
+=======
+
+Remove the "-server" part of the previous commmand.
+
+You will need to use this:
+
+"tacacs host 10.1.1.250 key cisco"
+
+
+Radius 
+======
+
+Intead of setting up radius as a single line, you now enter somethin similar to "radius-config mode"  despite that not being an actual config mode.
+
+This is how you set up radius now:
+
+R1(config)#radius server NEW
+R1(config-radius-server)#address ipv4 10.1.1.250
+R1(config-radius-server)#key cisco123
+
+NOTE: You will receive an error that type 0 passwords when entering the key will be deprecated in the future  (so bear that in mind going forward).
+Hoever, Packet Tracer does not present you with the option to specify the key in any form but clear text, so it can be ignore for mow:
+
+R1(config-radius-server)#key ?
+  LINE  The UNCRYPTED (cleartext) shared key
+  
+The remaninder of the setup works as before. 
+
