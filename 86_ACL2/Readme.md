@@ -181,6 +181,7 @@ write
 
 Show access-list
 
+```
 Extended IP access list 100
     10 permit tcp host 10.1.2.101 10.1.1.100 0.0.0.1 eq www
     20 permit tcp host 10.1.2.101 10.1.1.100 0.0.0.1 eq 443
@@ -193,5 +194,5 @@ Extended IP access list 101
     40 permit udp host 8.8.8.8 eq domain 10.1.2.0 0.0.0.255 (4 match(es))
     50 permit icmp any 10.1.2.0 0.0.0.255 echo-reply (4 match(es))
     60 deny ip any 10.1.2.0 0.0.0.255 (4 match(es))
-
+```
 
