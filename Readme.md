@@ -43,5 +43,5 @@ Hopefully this concise notes will help you to study ccna.
 - [Section 76 DHCP Snooping](https://github.com/awarmanf/road_to_ccna/tree/master/76_DHCP_Snooping)
 - [Section 80 Port Security](https://github.com/awarmanf/road_to_ccna/tree/master/80_Port_Security)
 - [Section 82 AAA TACACS and Radius](https://github.com/awarmanf/road_to_ccna/tree/master/82_AAA_TACACS_and_Radius)
-- [Section 85](https://github.com/awarmanf/road_to_ccna/tree/master/85_ACL)
-- [Section 86](https://github.com/awarmanf/road_to_ccna/tree/master/86_ACL)
+- [Section 85 ACL](https://github.com/awarmanf/road_to_ccna/tree/master/85_ACL)
+- [Section 86 ACL 2](https://github.com/awarmanf/road_to_ccna/tree/master/86_ACL2)
