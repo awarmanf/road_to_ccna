@@ -45,3 +45,6 @@ Hopefully this concise notes will help you to study ccna.
 - [Section 82 AAA TACACS and Radius](https://github.com/awarmanf/road_to_ccna/tree/master/82_AAA_TACACS_and_Radius)
 - [Section 85 ACL](https://github.com/awarmanf/road_to_ccna/tree/master/85_ACL)
 - [Section 86 ACL 2](https://github.com/awarmanf/road_to_ccna/tree/master/86_ACL2)
+- [Section 89 NAT](https://github.com/awarmanf/road_to_ccna/tree/master/89_NAT)
+- [Section 90 NAT 2](https://github.com/awarmanf/road_to_ccna/tree/master/90_NAT_2)
+- [Section 91 NAT 3](https://github.com/awarmanf/road_to_ccna/tree/master/91_NAT_3)
