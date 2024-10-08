@@ -129,7 +129,7 @@ end
 write
 ```
 
-## Verifiying
+## Verifying
 
 ### PC1
 
