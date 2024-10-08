@@ -1,0 +1,112 @@
+!
+version 15.4
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname R1
+!
+!
+!
+enable password cisco
+!
+!
+!
+ip dhcp pool pc
+ network 10.1.2.0 255.255.255.0
+ default-router 10.1.2.254
+ dns-server 8.8.8.8
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+ip name-server 8.8.8.8
+!
+!
+spanning-tree mode pvst
+!
+class-map match-all voice
+ match protocol rtp
+class-map match-all http
+ match protocol http
+class-map match-all icmp
+ match protocol icmp
+!
+policy-map mark
+ class voice
+  priority 100
+  set ip dscp ef
+ class http
+  bandwidth 50
+  set ip dscp af31
+ class icmp
+  bandwidth 25
+  set ip dscp af11
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0/0
+ ip address 10.1.2.254 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/0/1
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Serial0/1/0
+ bandwidth 250
+ ip address 10.1.1.1 255.255.255.0
+ service-policy output mark
+ clock rate 250000
+!
+interface Serial0/1/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 1
+ log-adjacency-changes
+ network 0.0.0.0 255.255.255.255 area 0
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ password cisco
+ login
+!
+!
+!
+end
+
