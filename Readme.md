@@ -48,3 +48,5 @@ Hopefully this concise notes will help you to study ccna.
 - [Section 89 NAT](https://github.com/awarmanf/road_to_ccna/tree/master/89_NAT)
 - [Section 90 NAT 2](https://github.com/awarmanf/road_to_ccna/tree/master/90_NAT_2)
 - [Section 91 NAT 3](https://github.com/awarmanf/road_to_ccna/tree/master/91_NAT_3)
+- [Section 92 Campus Network Part 4](https://github.com/awarmanf/road_to_ccna/tree/master/92_Campus_Network_Part_4)
+- [Section 96 QoS](https://github.com/awarmanf/road_to_ccna/tree/master/96_QoS)
