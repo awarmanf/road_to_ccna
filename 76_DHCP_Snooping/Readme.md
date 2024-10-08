@@ -65,7 +65,7 @@ Do configure
     ip dhcp snooping limit rate 10
     end
 
-Verifiying
+Verifying
 
 Enter command `sh ip dhcp snooping`
 
