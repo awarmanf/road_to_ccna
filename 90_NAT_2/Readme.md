@@ -131,7 +131,7 @@ tcp 8.8.8.200:80       10.1.1.100:80      ---                ---
 ---  8.8.8.201         10.1.1.101         ---                ---
 ```
 
-## Verifiying
+## Verifying
 
 ### Outside PC1
 
@@ -248,7 +248,7 @@ end
 write
 ```
 
-#### Verifiying
+#### Verifying
 
 On inside PC ping to 8.8.8.8, facebook.com and cisco.com are successful.
 
