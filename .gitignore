@@ -21,3 +21,4 @@ lat-*.pkt
 *.orig
 *.orig.md
 *.pcapng
+*.swp
