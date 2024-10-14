@@ -1,0 +1,128 @@
+!
+version 12.4
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname R1
+!
+!
+!
+!
+ip dhcp excluded-address 10.1.100.200 10.1.100.254
+ip dhcp excluded-address 10.1.101.200 10.1.101.254
+!
+ip dhcp pool PCs
+ network 10.1.100.0 255.255.255.0
+ default-router 10.1.100.254
+ dns-server 10.1.100.254
+ip dhcp pool Phones
+ network 10.1.101.0 255.255.255.0
+ default-router 10.1.101.254
+ option 150 ip 10.1.101.254
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ no ip address
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/0.1
+ encapsulation dot1Q 1 native
+ ip address 10.1.1.254 255.255.255.0
+!
+interface FastEthernet0/0.100
+ encapsulation dot1Q 100
+ ip address 10.1.100.254 255.255.255.0
+!
+interface FastEthernet0/0.101
+ encapsulation dot1Q 101
+ ip address 10.1.101.254 255.255.255.0
+!
+interface FastEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+!
+telephony-service
+ max-ephones 3
+ max-dn 3
+ ip source-address 10.1.101.254 port 2000
+ auto assign 1 to 3
+!
+ephone-dn 1
+ number 1000
+!
+ephone-dn 2
+ number 1001
+!
+ephone-dn 3
+ number 1002
+!
+ephone 1
+ device-security-mode none
+ mac-address 0090.0CB1.438E
+ type 7960
+ button 1:1
+!
+ephone 2
+ device-security-mode none
+ mac-address 00D0.BA6A.B528
+ type 7960
+ button 1:2
+!
+ephone 3
+ device-security-mode none
+ mac-address 0004.9A05.0DC7
+ type 7960
+ button 1:3
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+
