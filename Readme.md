@@ -50,3 +50,8 @@ Hopefully this concise notes will help you to study ccna.
 - [Section 91 NAT 3](https://github.com/awarmanf/road_to_ccna/tree/master/91_NAT_3)
 - [Section 92 Campus Network Part 4](https://github.com/awarmanf/road_to_ccna/tree/master/92_Campus_Network_Part_4)
 - [Section 96 QoS](https://github.com/awarmanf/road_to_ccna/tree/master/96_QoS)
+- [Section 99 VoIP](https://github.com/awarmanf/road_to_ccna/tree/master/99_VoIP)
+- [Section 101 OSPF](https://github.com/awarmanf/road_to_ccna/tree/master/101_OSPF)
+- [Section 104 OSPF Troubleshoot](https://github.com/awarmanf/road_to_ccna/tree/master/104_OSPF_Troubleshoot)
+- [Section 105 OSPF Troubleshoot](https://github.com/awarmanf/road_to_ccna/tree/master/105_OSPF_Troubleshoot)
+- [Section 106 OSPF Troubleshoot](https://github.com/awarmanf/road_to_ccna/tree/master/106_OSPF_Troubleshoot)
