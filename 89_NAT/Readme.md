@@ -129,6 +129,16 @@ end
 write
 ```
 
+## Switch S1
+
+We enable portfast on GigabitEthernet1/0/1 - GigabitEthernet1/0/4
+
+```
+conf t
+interface range GigabitEthernet1/0/1 - 4
+ spanning-tree portfast
+```
+
 ## Verifying
 
 ### PC1
