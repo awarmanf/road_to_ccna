@@ -34,9 +34,9 @@ Now, in OSPF, the backbone area is Area 0. So you should start with Area 0 when 
 ```
 conf t
 router ospf 1
-network 10.1.1.1 0.0.0.0 area 0
-network 1.1.1.1 0.0.0.0 area 0
-end
+ network 10.1.1.1 0.0.0.0 area 0
+ network 1.1.1.1 0.0.0.0 area 0
+ end
 wr
 ```
 
@@ -79,16 +79,7 @@ Show ip ospf database
                 Router Link States (Area 0)
 
 Link ID         ADV Router      Age         Seq#       Checksum Link count
-4.4.4.4         4.4.4.4         58          0x80000003 0x007d74 2
-3.3.3.3         3.3.3.3         58          0x80000005 0x0024aa 3
-1.1.1.1         1.1.1.1         58          0x80000003 0x008595 2
-2.2.2.2         2.2.2.2         58          0x80000005 0x00d905 3
-
-                Net Link States (Area 0)
-Link ID         ADV Router      Age         Seq#       Checksum
-10.1.3.2        4.4.4.4         58          0x80000001 0x002cdd
-10.1.2.2        3.3.3.3         58          0x80000001 0x002fe6
-10.1.1.2        2.2.2.2         58          0x80000001 0x00cf59
+1.1.1.1         1.1.1.1         60          0x80000002 0x00e346 2
 ```
 
 Show ip protocols
@@ -112,7 +103,7 @@ Routing Protocol is "ospf 1"
 After the moment, we only have one router in Area 0. We have one normal area. There are no stub areas and 
 no not-so-stubby areas (nssa) at the moment.
 
-Show running config
+Show running config `sh running-config | section router ospf`
 
 ```
 !
@@ -140,12 +131,14 @@ We need to configure OSPF using the network command and base that on the subnet 
 ```
 conf t
 router ospf 1
-network 2.2.2.2 0.0.0.0 area 0
-network 10.1.1.0 0.0.0.255 area 0
-network 10.1.2.0 0.0.0.255 area 0
+ network 2.2.2.2 0.0.0.0 area 0
+ network 10.1.1.0 0.0.0.255 area 0
+ network 10.1.2.0 0.0.0.255 area 0
+ end
+write
 ```
 
-Show running config
+Show running config `sh running-config | section router ospf`
 
 ```
 !
@@ -165,17 +158,30 @@ Show ip ospf database
                 Router Link States (Area 0)
 
 Link ID         ADV Router      Age         Seq#       Checksum Link count
-4.4.4.4         4.4.4.4         106         0x80000003 0x007d74 2
-3.3.3.3         3.3.3.3         106         0x80000005 0x0024aa 3
-2.2.2.2         2.2.2.2         106         0x80000005 0x00d905 3
-1.1.1.1         1.1.1.1         106         0x80000003 0x008595 2
+1.1.1.1         1.1.1.1         35          0x80000003 0x0072a9 2
+2.2.2.2         2.2.2.2         34          0x80000004 0x00b43b 3
 
                 Net Link States (Area 0)
 Link ID         ADV Router      Age         Seq#       Checksum
-10.1.3.2        4.4.4.4         106         0x80000001 0x002cdd
-10.1.2.2        3.3.3.3         106         0x80000001 0x002fe6
-10.1.1.2        2.2.2.2         106         0x80000001 0x00cf59
+10.1.1.1        1.1.1.1         35          0x80000001 0x008b72
 ```
+
+On router R1
+
+```
+            OSPF Router with ID (1.1.1.1) (Process ID 1)
+
+                Router Link States (Area 0)
+
+Link ID         ADV Router      Age         Seq#       Checksum Link count
+1.1.1.1         1.1.1.1         110         0x80000003 0x0072a9 2
+2.2.2.2         2.2.2.2         109         0x80000004 0x00b43b 3
+
+                Net Link States (Area 0)
+Link ID         ADV Router      Age         Seq#       Checksum
+10.1.1.1        1.1.1.1         110         0x80000001 0x008b72
+```
+
 
 Show ip protocols
 
@@ -293,6 +299,7 @@ command on router three.
 ```
 conf t
 router ospf 1
+ exit
 int g0/0
 ```
 
@@ -310,12 +317,14 @@ R3(config-if)#ip ospf ?
 ```
 
 ```
-ip ospf 1 area 0
+ ip ospf 1 area 0
+ exit
 int g0/1
-ip ospf 1 area 0
-int loop 0
-ip ospf 1 area 0
-end
+ ip ospf 1 area 0
+ exit
+int loopback 0
+ ip ospf 1 area 0
+ end
 wr
 ```
 
@@ -327,16 +336,14 @@ Show ip ospf database
                 Router Link States (Area 0)
 
 Link ID         ADV Router      Age         Seq#       Checksum Link count
-4.4.4.4         4.4.4.4         142         0x80000003 0x007d74 2
-3.3.3.3         3.3.3.3         142         0x80000005 0x0024aa 3
-2.2.2.2         2.2.2.2         142         0x80000005 0x00d905 3
-1.1.1.1         1.1.1.1         142         0x80000003 0x008595 2
+1.1.1.1         1.1.1.1         1343        0x80000003 0x0072a9 2
+2.2.2.2         2.2.2.2         70          0x80000005 0x00a13f 3
+3.3.3.3         3.3.3.3         66          0x80000004 0x00a937 3
 
                 Net Link States (Area 0)
 Link ID         ADV Router      Age         Seq#       Checksum
-10.1.3.2        4.4.4.4         142         0x80000001 0x002cdd
-10.1.2.2        3.3.3.3         142         0x80000001 0x002fe6
-10.1.1.2        2.2.2.2         142         0x80000001 0x00cf59
+10.1.1.1        1.1.1.1         1343        0x80000001 0x008b72
+10.1.2.1        2.2.2.2         70          0x80000001 0x00bf2e
 ```
 
 
@@ -602,7 +609,7 @@ L       10.1.3.2/32 is directly connected, GigabitEthernet0/0
 
 When condition is stable
 
-On router R1 sho ip ospf interface brief
+On router R1 `sh ip ospf interface brief`
 
 ```
 Interface     PID   Area                     IP Address/Mask          Cost  State  Nbrs F/C
@@ -610,7 +617,7 @@ Lo0             1   0                        1.1.1.1/255.255.255.255   1     WAI
 Gig0/0/0        1   0                         10.1.1.1/255.255.255.0   1      BDR  0/0
 ```
 
-On router R2 sho ip ospf interface brief
+On router R2 `sh ip ospf interface brief`
 
 ```
 Interface     PID   Area                     IP Address/Mask          Cost  State  Nbrs F/C
@@ -619,7 +626,7 @@ Gig0/0/0        1   0                         10.1.1.2/255.255.255.0   1       D
 Gig0/0/1        1   0                         10.1.2.1/255.255.255.0   1      BDR  0/0
 ```
 
-On router R3 sho ip ospf interface brief
+On router R3 `sh ip ospf interface brief`
 
 ```
 Interface     PID   Area                     IP Address/Mask          Cost  State  Nbrs F/C
@@ -628,7 +635,7 @@ Gig0/1          1   0                         10.1.2.2/255.255.255.0   1       D
 Gig0/0          1   0                         10.1.3.1/255.255.255.0   1      BDR  0/0
 ```
 
-On router R4 sho ip ospf interface brief
+On router R4 `sh ip ospf interface brief`
 
 ```
 Interface     PID   Area                     IP Address/Mask          Cost  State  Nbrs F/C
